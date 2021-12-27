@@ -18,7 +18,7 @@ public class CommonTest {
 
     @BeforeClass
     public static void setUp() {
-        System.out.println("Iniciando Setup...");
+        log(String.format("Iniciando Setup... (%s)", new TestName().getMethodName()));
         getDriver();
     }
 
@@ -35,7 +35,7 @@ public class CommonTest {
 
     @AfterClass
     public static void tearDown() {
-        System.out.println("Finalizando todos os testes...");
+        log(String.format("Finalizando todos os testes... (%s)", new TestName().getMethodName()));
         killDriver();
     }
 

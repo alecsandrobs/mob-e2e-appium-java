@@ -49,7 +49,7 @@ public class DragAndDropTest extends CommonTest {
         String textoEsperadoFim = "Faça um clique longo,\né uma lista\nDrag em Drop!\ne arraste para\nEsta\nqualquer local desejado.";
         Assert.assertEquals(textoEsperadoFim, textoObtido);
 
-        aguardar(3);
+        aguardar(1);
     }
 
     public String percorrer(List<MobileElement> elements) {
@@ -61,7 +61,6 @@ public class DragAndDropTest extends CommonTest {
                 lista = elements.get(i).getText();
             }
         }
-        System.out.println(lista);
         return lista;
     }
 }

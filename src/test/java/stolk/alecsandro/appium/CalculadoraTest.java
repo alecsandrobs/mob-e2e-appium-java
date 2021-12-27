@@ -12,6 +12,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 import static org.junit.Assert.assertEquals;
+import static stolk.alecsandro.appium.core.DriverFactory.log;
 
 public class CalculadoraTest {
 
@@ -34,14 +35,11 @@ public class CalculadoraTest {
 
     @Before
     public void setUp() throws MalformedURLException {
-        System.out.println("Executou o Before");
-
         capabilities.setCapability("platformName", "Android");
         capabilities.setCapability("deviceName", "emulador-5554");
         capabilities.setCapability("automationName", "uiautomator2");
         capabilities.setCapability("appPackage", "com.android.calculator2");
         capabilities.setCapability("appActivity", "com.android.calculator2.Calculator");
-
         driver = new AppiumDriver(new URL(url), capabilities);
     }
 
@@ -58,14 +56,13 @@ public class CalculadoraTest {
 
         MobileElement fieldResult = driver.findElement(By.id(button("result")));
 
-        System.out.println(String.format("Resultado da soma: %s", fieldResult.getText()));
+        log(String.format("Resultado da soma: %s", fieldResult.getText()));
 
         assertEquals("4", fieldResult.getText());
     }
 
     @After
     public void tearDown() {
-        System.out.println("Executou o After");
         driver.quit();
     }
 }

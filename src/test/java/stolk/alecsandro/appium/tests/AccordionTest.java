@@ -16,7 +16,7 @@ public class AccordionTest extends CommonTest {
     public void iniciar_teste() {
         // Acessar menu abas
         menu.acessarAccordion();
-        aguardar(3);
+        aguardar(1);
     }
 
     @Test
@@ -25,7 +25,7 @@ public class AccordionTest extends CommonTest {
         accordion.selecionarOpcao1();
 
         // Verificar texto da opçao 1
-        aguardar(3);
+        aguardar(1);
         Assert.assertEquals("Esta é a descrição da opção 1", accordion.textoOpcao1());
 
     }

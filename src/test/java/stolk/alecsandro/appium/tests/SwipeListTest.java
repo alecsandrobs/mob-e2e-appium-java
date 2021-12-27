@@ -48,7 +48,7 @@ public class SwipeListTest extends CommonTest {
         Assert.assertTrue(comum.existeElementoPeloTexto("Opção 6"));
         Assert.assertTrue(comum.existeElementoPeloTexto("Opção 7"));
         Assert.assertTrue(comum.existeElementoPeloTexto("Opção 8"));
-        aguardar(3);
+        aguardar(1);
     }
 
     @Test
@@ -78,7 +78,7 @@ public class SwipeListTest extends CommonTest {
         Assert.assertTrue(comum.existeElementoPeloTexto("Opção 6 (+)"));
         Assert.assertTrue(comum.existeElementoPeloTexto("Opção 7 (+)"));
         Assert.assertTrue(comum.existeElementoPeloTexto("Opção 8 (+)"));
-        aguardar(3);
+        aguardar(1);
     }
 
     @Test
@@ -108,7 +108,7 @@ public class SwipeListTest extends CommonTest {
         Assert.assertTrue(comum.existeElementoPeloTexto("Opção 6 (-)"));
         Assert.assertTrue(comum.existeElementoPeloTexto("Opção 7 (-)"));
         Assert.assertTrue(comum.existeElementoPeloTexto("Opção 8 (-)"));
-        aguardar(3);
+        aguardar(1);
     }
 
     @Test
@@ -138,7 +138,7 @@ public class SwipeListTest extends CommonTest {
         Assert.assertTrue(comum.existeElementoPeloTexto("Opção 6 (-)"));
         Assert.assertTrue(comum.existeElementoPeloTexto("Opção 7 (+)"));
         Assert.assertTrue(comum.existeElementoPeloTexto("Opção 8 (-)"));
-        aguardar(3);
+        aguardar(1);
     }
 
     @Test
@@ -168,6 +168,6 @@ public class SwipeListTest extends CommonTest {
         Assert.assertTrue(comum.existeElementoPeloTexto("Opção 6 (+)"));
         Assert.assertTrue(comum.existeElementoPeloTexto("Opção 7 (-)"));
         Assert.assertTrue(comum.existeElementoPeloTexto("Opção 8 (+)"));
-        aguardar(3);
+        aguardar(1);
     }
 }

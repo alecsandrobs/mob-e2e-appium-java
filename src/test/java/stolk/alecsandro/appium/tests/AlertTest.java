@@ -15,8 +15,7 @@ import stolk.alecsandro.appium.pages.Alerta;
 import stolk.alecsandro.appium.pages.Menu;
 
 import static org.junit.Assert.*;
-import static stolk.alecsandro.appium.core.DriverFactory.aguardarImplicito;
-import static stolk.alecsandro.appium.core.DriverFactory.getDriver;
+import static stolk.alecsandro.appium.core.DriverFactory.*;
 
 public class AlertTest extends CommonTest {
 
@@ -69,7 +68,7 @@ public class AlertTest extends CommonTest {
         try {
             comum.tap(x2, y2);
         } catch (InvalidElementStateException exception){
-            System.out.println(String.format("Erro ao executar a touch action nas coordenadas (x: %s, y: %s)\n%s", x2, y2, exception.getMessage()));
+            log(String.format("Erro ao executar a touch action nas coordenadas (x: %s, y: %s)\n%s", x2, y2, exception.getMessage()));
 //            alerta.OK();
         }
 

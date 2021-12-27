@@ -64,6 +64,16 @@ public class CommonPage {
                 .perform();
     }
 
+    public void scroll(WebElement elementoOrigem, WebElement elementoDestino) {
+        Dimension size = getDriver().manage().window().getSize();
+        new TouchAction(getDriver())
+                .press(new PointOption().withCoordinates(elementoOrigem.getLocation()))
+                .waitAction(WaitOptions.waitOptions(Duration.ofMillis(500)))
+                .moveTo(new PointOption().withCoordinates(elementoDestino.getLocation()))
+                .release()
+                .perform();
+    }
+
     public void swipe(double inicio, double fim) {
         Dimension size = getDriver().manage().window().getSize();
         int xStart = (int) (size.width * inicio);

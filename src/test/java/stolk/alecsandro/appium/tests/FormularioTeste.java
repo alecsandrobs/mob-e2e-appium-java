@@ -1,16 +1,26 @@
 package stolk.alecsandro.appium.tests;
 
 import io.appium.java_client.MobileBy;
+import io.appium.java_client.MobileElement;
+import io.appium.java_client.TouchAction;
+import io.appium.java_client.touch.LongPressOptions;
+import io.appium.java_client.touch.offset.ElementOption;
+import io.appium.java_client.touch.offset.PointOption;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.internal.runners.statements.Fail;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import stolk.alecsandro.appium.core.CommonTest;
 import stolk.alecsandro.appium.pages.Formulario;
 import stolk.alecsandro.appium.pages.Menu;
 
+import javax.swing.*;
+import java.util.List;
+
 import static org.junit.Assert.*;
-import static stolk.alecsandro.appium.core.DriverFactory.aguardarImplicito;
-import static stolk.alecsandro.appium.core.DriverFactory.aguardarPeloElementoPresente;
+import static stolk.alecsandro.appium.core.DriverFactory.*;
 
 public class FormularioTeste extends CommonTest {
 
@@ -77,7 +87,6 @@ public class FormularioTeste extends CommonTest {
 
         // Má estratégia
         aguardarImplicito(0);
-//        aguardar(3);
         aguardarPeloElementoPresente(By.xpath("//*[starts-with(@text, 'Nome:')]"), 10);
 
         assertTrue(formulario.lerCampoSalvoNome().endsWith(name));
@@ -91,14 +100,14 @@ public class FormularioTeste extends CommonTest {
     @Test
     public void deve_alterar_data() {
         formulario.clicarNoTexto("01/01/2000");
-        formulario.clicarNoTexto("20");
-        formulario.clicarNoTexto("OK");
-
-        assertTrue(formulario.existeElementoPeloTexto("20/2/2000"));
+        String data = "10/9/2022";
+        formulario.selecionarData(data);
+        assertTrue(formulario.existeElementoPeloTexto(data));
     }
 
     @Test
     public void deve_alterar_hora() {
+
         formulario.clicarNoTexto("06:00");
         formulario.clicar(MobileBy.AccessibilityId("10"));
         formulario.clicar(MobileBy.AccessibilityId("45"));
@@ -115,7 +124,7 @@ public class FormularioTeste extends CommonTest {
         // Salvar
         formulario.salvar();
 
-        aguardar(7);
+        aguardar(1);
 
         // Obter o valor
     }
