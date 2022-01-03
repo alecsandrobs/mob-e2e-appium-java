@@ -59,8 +59,40 @@ public class FormularioTeste extends CommonTest {
     }
 
     @Test
+    public void deve_alterar_data() {
+        formulario.clicarNoTexto("01/01/2000");
+        String data = "30/12/2021";
+        formulario.selecionarData(data);
+        assertTrue(formulario.existeElementoPeloTexto(data));
+    }
+
+    @Test
+    public void deve_alterar_hora() {
+
+        formulario.clicarNoTexto("06:00");
+        formulario.clicar(MobileBy.AccessibilityId("10"));
+        formulario.clicar(MobileBy.AccessibilityId("45"));
+        formulario.clicarNoTexto("OK");
+
+        assertTrue(formulario.existeElementoPeloTexto("10:45"));
+    }
+
+    @Test
+    public void deve_interagir_com_seekbar() {
+        // Clicar no seekbar
+        formulario.clicarSeekBar(0.67);
+
+        // Salvar
+        formulario.salvar();
+
+        aguardar(1);
+
+        // Obter o valor
+    }
+
+    @Test
     public void deve_gravar_informacoes_do_formulario_desafio() {
-        String name = "Alecsandro Bez Stolk";
+        String name = "John Joe Jones";
 
         formulario.digitarNome(name);
         formulario.selecionarCombo("PS4");
@@ -95,37 +127,5 @@ public class FormularioTeste extends CommonTest {
         assertTrue(formulario.lerCampoSalvoSwitch().endsWith("On"));
         assertTrue(formulario.lerCampoSalvoCheck().endsWith("Desabilitado"));
         assertTrue(formulario.lerCampoSalvoData().endsWith("01/01/2000"));
-    }
-
-    @Test
-    public void deve_alterar_data() {
-        formulario.clicarNoTexto("01/01/2000");
-        String data = "10/9/2022";
-        formulario.selecionarData(data);
-        assertTrue(formulario.existeElementoPeloTexto(data));
-    }
-
-    @Test
-    public void deve_alterar_hora() {
-
-        formulario.clicarNoTexto("06:00");
-        formulario.clicar(MobileBy.AccessibilityId("10"));
-        formulario.clicar(MobileBy.AccessibilityId("45"));
-        formulario.clicarNoTexto("OK");
-
-        assertTrue(formulario.existeElementoPeloTexto("10:45"));
-    }
-
-    @Test
-    public void deve_interagir_com_seekbar() {
-        // Clicar no seekbar
-        formulario.clicarSeekBar(0.67);
-
-        // Salvar
-        formulario.salvar();
-
-        aguardar(1);
-
-        // Obter o valor
     }
 }
